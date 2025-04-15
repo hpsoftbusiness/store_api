@@ -15,6 +15,4 @@ class OrderRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Order::class);
     }
-
-    // Możesz tu dodać własne metody wyszukiwania zamówień, np. findByStatus itp.
 }

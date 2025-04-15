@@ -7,7 +7,6 @@ use App\Entity\OrderItem;
 use App\Enum\OrderStatus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\OrderRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -30,7 +29,6 @@ class OrderController extends AbstractController
             $item->setPrice($itemData['price']);
             $item->setQuantity($itemData['quantity']);
             $order->addItem($item);
-            $total += $itemData['price'] * $itemData['quantity'];
         }
 
         $em->persist($order);
@@ -65,7 +63,7 @@ class OrderController extends AbstractController
         $total = 0;
 
         foreach ($items as $item) {
-            $total += $item->getPrice() * $item->getQuantity(); // ✅ poprawnie
+            $total += $item->getPrice() * $item->getQuantity();
         }
 
         return $this->json([

@@ -1,6 +1,5 @@
 <?php
 
-// src/Entity/OrderItem.php
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
