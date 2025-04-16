@@ -1,27 +1,52 @@
-# System Zarządzania Zamówieniami
+# Order Management System
 
-Ten projekt to prosta aplikacja do zarządzania zamówieniami w sklepie internetowym. Aplikacja umożliwia składanie zamówień, pobieranie szczegółów zamówienia, oraz aktualizowanie statusu zamówienia.
+This project is a simple application for managing orders in an online store. It allows users to place new orders, retrieve order details, and update the order status.
 
-Aplikacja jest napisana w PHP 8.3 i Symfony 7.2 i wykorzystuje Doctrine ORM do interakcji z bazą danych.
+The application is built with **PHP 8.3** and **Symfony 7.2**, and it uses **Doctrine ORM** for database interactions.
 
-## Funkcjonalności
+## Features
 
-1. **Złożenie nowego zamówienia (POST /orders):**
-   - Klient wysyła dane zamówienia zawierające listę produktów z ich nazwami, cenami jednostkowymi oraz ilościami.
-   - System oblicza łączną cenę zamówienia i zapisuje zamówienie w bazie danych.
-   - Odpowiedź zawiera szczegóły zamówienia, w tym sumę całkowitą.
+### 1. Place a New Order
 
-2. **Pobranie szczegółów zamówienia (GET /orders/{id}):**
-   - Klient może pobrać szczegóły zamówienia, takie jak status, lista pozycji oraz łączna cena.
+**Endpoint:** `POST /orders`
 
-3. **Zmiana statusu zamówienia (PATCH /orders/{id}):**
-   - Klient może zmienić status zamówienia (np. z “new” na “paid”).
-   - Dostępne statusy zamówienia to: "new", "paid", "shipped", "cancelled".
+- The client sends order data containing a list of products with their:
+   - names,
+   - unit prices,
+   - quantities.
+- The system calculates the total price of the order and saves it in the database.
+- The response includes the order details, including the total amount.
 
-## Technologie
+### 2. Get Order Details
+
+**Endpoint:** `GET /orders/{id}`
+
+- Retrieves order details such as:
+   - order status,
+   - list of items,
+   - total price.
+
+### 3. Update Order Status
+
+**Endpoint:** `PATCH /orders/{id}`
+
+- Allows updating the order status (e.g., from `"new"` to `"paid"`).
+- Available statuses:
+   - `new`
+   - `paid`
+   - `shipped`
+   - `cancelled`
+
+## Tech Stack
 
 - **PHP 8.3**
 - **Symfony 7.2**
-- **Doctrine ORM** (do interakcji z bazą danych)
-- **API RESTful**
->>>>>>> master
+- **Doctrine ORM**
+- **RESTful API**
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/order-management.git
+   cd order-management
